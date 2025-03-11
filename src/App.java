@@ -10,6 +10,7 @@
  
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Bús Tamás\nSzoft I/N\n2025.03.11");
+        System.out.println("Bús Tamás\nSzoft I/N\n2025.03.11.");
+        Solution.startSolution();
     }
 }

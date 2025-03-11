@@ -13,7 +13,6 @@ import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Store {
     public static ArrayList<Employee> readFile() {
         ArrayList<Employee> empList = new ArrayList<>();
@@ -35,21 +34,18 @@ public class Store {
                 emp.setNev(lineArray[0]);
                 emp.setHely(lineArray[1]);
                 emp.setUtca(lineArray[2]);
-                // Születési dátum feldolgozása (kétjegyű hónap és nap)
                 String[] szuletesArray = lineArray[3].split("-");
                 String ev = szuletesArray[0];
-                String ho = String.format("%02d", Integer.parseInt(szuletesArray[1]));  // Kétjegyű hónap
-                String nap = String.format("%02d", Integer.parseInt(szuletesArray[2]));  // Kétjegyű nap
+                String ho = String.format("%02d", Integer.parseInt(szuletesArray[1]));
+                String nap = String.format("%02d", Integer.parseInt(szuletesArray[2]));
                 String szuletesDateStr = ev + "-" + ho + "-" + nap;
                 try {
-                    emp.setSzuletes(LocalDate.parse(szuletesDateStr));  // A dátum beállítása
+                    emp.setSzuletes(LocalDate.parse(szuletesDateStr));
                 } catch (Exception e) {
                     System.err.println("Hiba a dátum formátumban: " + szuletesDateStr);
-                    continue;  // Hiba esetén ugrunk a következő sorra
+                    continue;
                 }
-                // Fizetés beállítása
                 emp.setFizetes(Double.parseDouble(lineArray[4]));
-                // Hozzáadjuk az alkalmazottat a listához
                 empList.add(emp);
             }
         }
