@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Store {
     public static ArrayList<Employee> readFile() {
         ArrayList<Employee> empList = new ArrayList<>();
@@ -24,8 +25,8 @@ public class Store {
         }
         return empList;
     }
-        public static void tryReadFile(ArrayList<Employee> empList) throws FileNotFoundException {
-            File file = new File("laktatkft.txt");
+    public static void tryReadFile(ArrayList<Employee> empList) throws FileNotFoundException {
+        File file = new File("laktatkft.txt");
         try (Scanner sc = new Scanner(file, "utf8")) {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
